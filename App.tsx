@@ -5,41 +5,68 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import React, {useEffect, useState} from 'react';
+import {useColorScheme} from 'react-native';
+import {useNavigationContainerRef, DefaultTheme} from '@react-navigation/native';
+import remoteConfig from '@react-native-firebase/remote-config';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {darkTheme, lightTheme} from './src/utils/styles/theme';
+import {AppContext, authState} from './src/services/states';
+
+import AnimatedBootSplash from './src/components/AnimatedBootsplash';
+import Snackbar from './src/components/Snackbar';
+import config from './src/utils/config';
+import Navigations from './Navigations';
+
+const App = () => {
+  const value = authState();
+  const theme = {
+    ...DefaultTheme,
+    colors: useColorScheme() === 'dark' ? darkTheme : lightTheme,
+  };
+
+  const [visible, setVisible] = useState(true);
+
+  /**Firebase Routing Config */
+  const handleRemoteConfig = () => {
+    remoteConfig()
+      .setDefaults(config.variables)
+      .then(() => remoteConfig().fetchAndActivate())
+      .then(fetchedRemotely => {
+        if (fetchedRemotely) {
+          console.log('Configs were retrieved from the backend and activated.');
+        } else {
+          console.log(
+            'No configs were fetched from the backend, and the local configs were already activated',
+          );
+        }
+      })
+      .catch(error => console.log(error));
+  };
+  /**Firebase Routing Config */
+
+  useEffect(() => {
+    /**Remote Config */
+    handleRemoteConfig();
+    /**Remote Config */
+
+    // return () => {};
+  }, []);
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <PaperProvider theme={theme}>
+      {visible ? (
+        // <AnimatedBootSplash onAnimationEnd={() => setVisible(false)} />
+        null
+      ) : (
+        <AppContext.Provider value={value}>
+          <Navigations theme={theme} initialRoute="Welcome" />
+        </AppContext.Provider>
+      )}
+      <Snackbar />
+    </PaperProvider>
   );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;
