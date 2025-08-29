@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FurrPartner</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">${MAPS_API_KEY}</string>
 </resources>
