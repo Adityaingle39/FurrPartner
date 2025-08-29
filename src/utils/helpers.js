@@ -287,23 +287,32 @@ export const requestCameraPermission = async () => {
 };
 export const requestAndroidGalleryPermission = async () => {
     if (Platform.OS === 'android') {
-        try {
-            const granted = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
-                {
-                    title: 'Galary Permission',
-                    message: 'This app needs access to your Galary to pick photos.',
-                    buttonNeutral: 'Ask Me Later',
-                    buttonNegative: 'Cancel',
-                    buttonPositive: 'OK',
-                }
-            );
-            return granted === PermissionsAndroid.RESULTS.GRANTED;
-        } catch (error) {
-            console.warn('Permission error:', error);
-            return false;
+      try {
+        let permissionToRequest;
+  
+        if (Platform.Version >= 33) {
+          // Android 13+
+          permissionToRequest = PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES;
+        } else {
+          // Android 12 and below
+          permissionToRequest = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
         }
+  
+        const granted = await PermissionsAndroid.request(permissionToRequest, {
+          title: 'Gallery Permission',
+          message: 'This app needs access to your Gallery to pick photos.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        });
+  
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (error) {
+        console.warn('Permission error:', error);
+        return false;
+      }
     } else {
-        return true;
+      return true;
     }
-};
+  };
+  

@@ -418,7 +418,7 @@ const InformationDetails = ({ navigation }) => {
     <SafeAreaView style={[container, { backgroundColor: bgColor }]}>
       <Header navigation={navigation} type="back" options={{ title: 'Create Workspace', subTitle: 'Basic Information'}}></Header>
       <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{ flex: 1 }}
     >
       <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ flexGrow: 1 }}>

@@ -113,8 +113,7 @@ const WorkspaceInformation = ({navigation}) => {
   const [manualLocationInput, setManualLocationInput] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [workspaceAbout, setWorkspaceAbout] = useState('');
-  const [characterCountText, setcharacterCountText] =
-    useState(`0/1000 characters`);
+  const [characterCountText, setcharacterCountText] = useState(`0/1000 characters`);
   const [remainingCharacters, setRemainingCharacters] = useState(1000);
   const [dirty, setDirty] = useState(false);
 
@@ -693,7 +692,7 @@ const WorkspaceInformation = ({navigation}) => {
                 maxLength={1000}
               />
               <View style={{alignItems: 'flex-end'}}>
-                <Text style={subHeading}>{characterCountText}</Text>
+                <Text style={[subHeading,{color: theme.colors.onPrimaryContainer,}]}>{characterCountText}</Text>
               </View>
               {remainingCharacters <= 0 &&
                 Toaster({message: 'You have exceeded the character limit.'})}
