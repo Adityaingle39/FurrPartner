@@ -10,8 +10,8 @@ import {
 	InteractionManager,
 	useColorScheme
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import React, {useState} from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState } from 'react';
 import Icons from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Iicon from 'react-native-vector-icons/Ionicons';
@@ -39,7 +39,7 @@ const ListItem = ({ navigation, item, index }) => {
 			title={item.title}
 			left={props => <List.Icon {...props} icon={item.icon} color={item.iconColor} />}
 			right={props => <List.Icon {...props} icon={props.isExpanded ? 'chevron-down' : 'chevron-right'} />}
-			onPress={() => { item.link !== null ? (item.type == 'component' ? navigation.navigate(`${item.link}`) : (item.type == 'click' ? item.link(navigation) : (item.type == 'webview' ? navigation.navigate('MyView', {url: item.link, title: item.title}) : Linking.openURL(item.link)))) : null; }}
+			onPress={() => { item.link !== null ? (item.type == 'component' ? navigation.navigate(`${item.link}`) : (item.type == 'click' ? item.link(navigation) : (item.type == 'webview' ? navigation.navigate('MyView', { url: item.link, title: item.title }) : Linking.openURL(item.link)))) : null; }}
 		/>);
 	}
 };
@@ -51,11 +51,11 @@ const ListAccordion = ({ navigation, section, index }) => {
 
 	return (<List.Accordion
 		key={`setting-item-accordion-${index}`}
-		style={{ borderBottomWidth: 1, borderBottomColor: theme.colors.outlineVariant, paddingBottom: 15, paddingLeft: 15, backgroundColor: bgColor }}
+		style={{ borderBottomWidth: 1, borderBottomColor: theme.colors.outlineVariant, paddingBottom: 15, paddingLeft: 0, backgroundColor: bgColor }}
 		title={section.title}
-		titleStyle={{marginLeft: 10}}
+		titleStyle={{ marginLeft: 0 }}
 		left={props => <List.Icon {...props} icon={section.icon} color={section.iconColor} />}
-		right={props => props.isExpanded === false ? <List.Icon {...props} icon="chevron-right" style={{ marginRight: 8 }} /> : <List.Icon {...props} icon="chevron-down" style={{ marginRight: 8 }} />}
+		right={props => props.isExpanded === false ? <List.Icon {...props} icon="chevron-right" style={{ marginRight: 0 }} /> : <List.Icon {...props} icon="chevron-down" style={{ marginRight: 8 }} />}
 	// onPress={() => { item.link !== null ? (item.component == 'component' ? navigation.navigate(`${item.link}`) : Linking.openURL(item.link)) : null; }}
 	>
 		{section.children.filter(i => i.hide === false).map((item, itemIndex) => {
@@ -78,44 +78,50 @@ const Setting = ({ navigation }) => {
 
 	const handleLogoutEvent = () => {
 		Alert.alert('Sign Out', `Would you like to logout from the app?`, [
-		  {
-			text: 'Cancel',
-			onPress: () => null,
-			style: 'cancel',
-		  },
-		  { text: 'Yes', onPress: () => {
-			setLoading(true);
-			InteractionManager.runAfterInteractions(() => {
-			  logoutSystem()
-				.then(res => {
-				  setLoading(false);
-				//   setWorkspaces([]);
-				//   setAppointments([]);
-				  logout(navigation, 'logout');
-				})
-				.catch(error => {
-				  setLoading(false);
-				});
-			});
-			setLoading(false);
-		  }},
+			{
+				text: 'Cancel',
+				onPress: () => null,
+				style: 'cancel',
+			},
+			{
+				text: 'Yes', onPress: () => {
+					setLoading(true);
+					InteractionManager.runAfterInteractions(() => {
+						logoutSystem()
+							.then(res => {
+								setLoading(false);
+								//   setWorkspaces([]);
+								//   setAppointments([]);
+								logout(navigation, 'logout');
+							})
+							.catch(error => {
+								setLoading(false);
+							});
+					});
+					setLoading(false);
+				}
+			},
 		]);
 		return true;
 	};
-		
+
 	const listItems = [
 		{
 			title: 'My Details', items: [
 				{ hide: false, title: 'Edit Profile', iconColor: '#6B6BFF', icon: 'account-circle', type: 'component', link: 'BasicInformation' },
-				{ hide: false, title: 'Appointments', iconColor: '#9db428', icon: 'calendar-clock', type: 'accordion', link: null, children: [
-					{ hide: false, title: 'Upcoming', bgColor: childBgColor, iconColor: '#28b436', icon: 'calendar-arrow-right', type: 'component', link: 'AppointmentsUpcoming' },
-					{ hide: false, title: 'Previous', bgColor: childBgColor, iconColor: '#b46e28', icon: 'calendar-arrow-left', type: 'component', link: 'AppointmentsPrevious' },
-				] },
-				{ hide: false, title: 'Requests', iconColor: '#FFA31A', icon: 'calendar-import', type: 'accordion', link: null, children: [
-					{ hide: false, title: 'Accepted', bgColor: childBgColor, iconColor: '#018c0d', icon: 'calendar-arrow-right', type: 'component', link: 'RequestsAccepted' },
-					{ hide: false, title: 'Rejected', bgColor: childBgColor, iconColor: '#ff1e1a', icon: 'calendar-arrow-left', type: 'component', link: 'RequestsRejected' },
-					{ hide: false, title: 'Cancelled', bgColor: childBgColor, iconColor: '#FFA31A', icon: 'calendar-remove', type: 'component', link: 'RequestsCancelled' },
-				] },
+				{
+					hide: false, title: 'Appointments', iconColor: '#9db428', icon: 'calendar-clock', type: 'accordion', link: null, children: [
+						{ hide: false, title: 'Upcoming', bgColor: childBgColor, iconColor: '#28b436', icon: 'calendar-arrow-right', type: 'component', link: 'AppointmentsUpcoming' },
+						{ hide: false, title: 'Previous', bgColor: childBgColor, iconColor: '#b46e28', icon: 'calendar-arrow-left', type: 'component', link: 'AppointmentsPrevious' },
+					]
+				},
+				{
+					hide: false, title: 'Requests', iconColor: '#FFA31A', icon: 'calendar-import', type: 'accordion', link: null, children: [
+						{ hide: false, title: 'Accepted', bgColor: childBgColor, iconColor: '#018c0d', icon: 'calendar-arrow-right', type: 'component', link: 'RequestsAccepted' },
+						{ hide: false, title: 'Rejected', bgColor: childBgColor, iconColor: '#ff1e1a', icon: 'calendar-arrow-left', type: 'component', link: 'RequestsRejected' },
+						{ hide: false, title: 'Cancelled', bgColor: childBgColor, iconColor: '#FFA31A', icon: 'calendar-remove', type: 'component', link: 'RequestsCancelled' },
+					]
+				},
 				{
 					hide: false, title: 'Workspace Details', iconColor: '#9747FF', icon: 'office-building-marker', type: 'accordion', link: null, children: [
 						{ hide: false, title: 'Information', bgColor: childBgColor, iconColor: '#9747FF', icon: 'office-building', type: 'component', link: 'WorkspaceInformation' },
@@ -124,7 +130,7 @@ const Setting = ({ navigation }) => {
 						{ hide: false, title: 'Vacation Mode', bgColor: childBgColor, iconColor: '#28B446', icon: 'tree', type: 'component', link: "VacationStatus" },
 					],
 				},
-				{ hide: workspacesData.length === 1||workspacesData.length === 0, title: 'Set Default Workspace', iconColor: '#9747FF', icon: 'view-list', type: 'component', link: 'ChangeWorkspace'}
+				{ hide: workspacesData.length === 1 || workspacesData.length === 0, title: 'Set Default Workspace', iconColor: '#9747FF', icon: 'view-list', type: 'component', link: 'ChangeWorkspace' }
 			]
 		},
 		{
@@ -146,7 +152,7 @@ const Setting = ({ navigation }) => {
 		<SafeAreaView style={{ flex: 1, backgroundColor: bgColor }}>
 			<Loader title="Please wait..." visible={isLoading}></Loader>
 			<Header navigation={navigation} type='main' options={{ title: 'Settings', subTitle: defaultWorkspace ? defaultWorkspace.workplaceName : `Manage Workspace` }}></Header>
-			<ScrollView style={{flex: 1, marginBottom: 40}}>
+			<ScrollView style={{ flex: 1, marginBottom: 40 }}>
 				<List.Section>
 					{listItems.map((section, index) => {
 						return (<View key={`settings-section-${index}`} style={{ marginBottom: 15 }}>
@@ -157,9 +163,9 @@ const Setting = ({ navigation }) => {
 						</View>);
 					})}
 				</List.Section>
-				<View style={{flexDirection:'row', justifyContent:'center', paddingBottom: 40, marginTop:0}}>
-          <Text style={{color: theme.colors.onSurface}}>Version: {getVersion()}</Text>
-        </View>
+				<View style={{ flexDirection: 'row', justifyContent: 'center', paddingBottom: 40, marginTop: 0 }}>
+					<Text style={{ color: theme.colors.onSurface }}>Version: {getVersion()}</Text>
+				</View>
 			</ScrollView>
 		</SafeAreaView>
 	);
