@@ -7,12 +7,18 @@
 
 import React, {useEffect, useState} from 'react';
 import {useColorScheme} from 'react-native';
-import {useNavigationContainerRef, DefaultTheme} from '@react-navigation/native';
+import {
+  useNavigationContainerRef,
+  DefaultTheme as NavigationDefaultTheme,
+} from '@react-navigation/native';
 import remoteConfig from '@react-native-firebase/remote-config';
 
-import {Provider as PaperProvider} from 'react-native-paper';
+import {
+  Provider as PaperProvider,
+  MD3LightTheme as PaperDefaultTheme,
+} from 'react-native-paper';
 import {darkTheme, lightTheme} from './src/utils/styles/theme';
-import {AppContext, authState} from './src/services/states';
+import {AppProvider} from './src/services/states';
 
 import AnimatedBootSplash from './src/components/AnimatedBootsplash';
 import Snackbar from './src/components/Snackbar';
@@ -20,18 +26,31 @@ import config from './src/utils/config';
 import Navigations from './Navigations';
 
 const App = () => {
-  const value = authState();
-  const theme = {
-    ...DefaultTheme,
-    colors: useColorScheme() === 'dark' ? darkTheme : lightTheme,
+  const colorScheme = useColorScheme();
+  const [visible, setVisible] = useState(true);
+
+  const customColors = colorScheme === 'dark' ? darkTheme : lightTheme;
+
+  const paperTheme = {
+    ...PaperDefaultTheme,
+    colors: {
+      ...PaperDefaultTheme.colors,
+      ...customColors,
+    },
   };
 
-  const [visible, setVisible] = useState(true);
+  const navigationTheme = {
+    ...NavigationDefaultTheme,
+    colors: {
+      ...NavigationDefaultTheme.colors,
+      ...customColors,
+    },
+  };
 
   /**Firebase Routing Config */
   const handleRemoteConfig = () => {
     remoteConfig()
-      .setDefaults(config.variables)
+      .setDefaults(config.variables as any)
       .then(() => remoteConfig().fetchAndActivate())
       .then(fetchedRemotely => {
         if (fetchedRemotely) {
@@ -47,26 +66,21 @@ const App = () => {
   /**Firebase Routing Config */
 
   useEffect(() => {
-    /**Remote Config */
     handleRemoteConfig();
-    /**Remote Config */
-
-    // return () => {};
   }, []);
 
   return (
-    <PaperProvider theme={theme}>
-      {visible ? (
-        // <AnimatedBootSplash onAnimationEnd={() => setVisible(false)} />
-                  <Navigations theme={theme} initialRoute="Welcome" />
-
-      ) : (
-        <AppContext.Provider value={value}>
-          <Navigations theme={theme} initialRoute="Welcome" />
-        </AppContext.Provider>
-      )}
-      <Snackbar />
-    </PaperProvider>
+    <AppProvider>
+      <PaperProvider theme={paperTheme}>
+        {visible ? (
+          // <AnimatedBootSplash onAnimationEnd={() => setVisible(false)} />
+          <Navigations theme={navigationTheme} initialRoute="Welcome" />
+        ) : (
+          <Navigations theme={navigationTheme} initialRoute="Welcome" />
+        )}
+        <Snackbar />
+      </PaperProvider>
+    </AppProvider>
   );
 };
 

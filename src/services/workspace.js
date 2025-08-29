@@ -3,7 +3,35 @@ import {AppContext} from './states';
 import { logViewAd } from '../utils/analytics';
 
 export function useWorspaceState() {
-  const [state, dispatch] = useContext(AppContext);
+  const context = useContext(AppContext);
+
+  if (!context) {
+    // Return a default state to prevent crashes if context is not available
+    return {
+      newWorkspace: {},
+      defaultWorkspace: {},
+      workspacesData: [],
+      setWorkspaces: () => {},
+      setWorkspaceId: () => {},
+      setDesignationName: () => {},
+      setAbout: () => {},
+      setWorkplaceName: () => {},
+      setCollaboratorId: () => {},
+      setServiceId: () => {},
+      setAddress: () => {},
+      setTown: () => {},
+      setPincode: () => {},
+      setState: () => {},
+      setEducation: () => {},
+      setExpertise: () => {},
+      setWorkplaceTime: () => {},
+      setCreatedBy: () => {},
+      setUploadImages: () => {},
+      setServices: () => {},
+    };
+  }
+
+  const [state, dispatch] = context;
   const dbWorkspaceData = state?.workspaces;
 
   let returnData = {
