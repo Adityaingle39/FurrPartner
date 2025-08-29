@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   KeyboardAvoidingView,
   Image,
@@ -14,6 +13,7 @@ import {
   BackHandler,
   Alert,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState, useEffect} from 'react';
 import {StackActions, useNavigation,useIsFocused} from '@react-navigation/native';
 import {Button, TextInput, Checkbox, useTheme} from 'react-native-paper';

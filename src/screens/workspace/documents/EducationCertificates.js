@@ -2,13 +2,13 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   Image,
   TouchableOpacity,
   Alert,
   Linking
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState} from 'react';
 import { Button } from 'react-native-paper';
 import {useRoute, useTheme} from '@react-navigation/native';

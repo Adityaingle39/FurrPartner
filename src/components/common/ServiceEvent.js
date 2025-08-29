@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View,Linking } from 'react-native';
+import {  Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View,Linking } from 'react-native';
 import { IconButton, useTheme } from 'react-native-paper';
 import IconCustom from './IconCustom';
 import moment from 'moment';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import Toaster from '../../components/common/Toaster';
 import { colors } from '../../utils/styles/gobalstyle';

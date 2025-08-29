@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import moment from 'moment';
 import {
-  SafeAreaView,
   RefreshControl,
   View,
   Text,
@@ -10,6 +9,7 @@ import {
   useColorScheme,
   Dimensions,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {IconButton, Card, Divider, List, useTheme} from 'react-native-paper';
 import {useFocusEffect} from '@react-navigation/native';
 

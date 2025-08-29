@@ -1,5 +1,6 @@
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet ,TextInput} from 'react-native'
+import { View, Text, ScrollView, Image, StyleSheet ,TextInput} from 'react-native'
 import React from 'react'
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Button from '../components/common/Button';
 import {
     navigatorLink,

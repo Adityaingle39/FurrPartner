@@ -1,9 +1,9 @@
 import { 
 	View,
-	SafeAreaView,
 	Dimensions,
 	StyleSheet
   } from 'react-native';
+  import {SafeAreaView} from 'react-native-safe-area-context';
   import React, {useState, useRef, useEffect} from 'react';
   import { IconButton, useTheme } from 'react-native-paper';
   import {REACT_APP_TOKBOX_API_KEY} from '@env';

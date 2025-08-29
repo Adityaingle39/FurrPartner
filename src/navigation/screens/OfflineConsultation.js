@@ -1,7 +1,6 @@
 import {
     View,
     Text,
-    SafeAreaView,
     ScrollView,
     StyleSheet,
     TouchableOpacity,
@@ -9,6 +8,7 @@ import {
   } from 'react-native';
   import React from 'react';
   import Icon from 'react-native-vector-icons/Feather';
+  import {SafeAreaView} from 'react-native-safe-area-context';
   
   
   const OfflineConsultation = ({navigation}) => {

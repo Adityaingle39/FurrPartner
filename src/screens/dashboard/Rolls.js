@@ -11,10 +11,10 @@ import {
 	VirtualizedList,
 	RefreshControl,
 	ScrollView,
-	SafeAreaView,
 	useColorScheme,
 	Platform
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useRef, useState, useEffect, useContext, useCallback } from 'react';
 import { Card, FAB, SegmentedButtons, Chip, IconButton, Button, List, Menu, Divider, Provider as PaperProvider, useTheme } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';

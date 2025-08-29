@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   Image,
   ActivityIndicator,
   Dimensions,
@@ -13,6 +12,7 @@ import {
   Alert,
   Linking
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Feather';
 import ImagePicker from 'react-native-image-crop-picker';
 import { TextInput, Button, useTheme } from 'react-native-paper';

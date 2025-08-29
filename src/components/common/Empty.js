@@ -1,12 +1,12 @@
 import {
     View,
     Text,
-    SafeAreaView,
     ScrollView,
     StyleSheet,
     Dimensions,
     Image,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { Card, useTheme } from 'react-native-paper';
 
 const Empty = ({title, subtitle, icon, style, top}) => {

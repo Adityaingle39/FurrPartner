@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
+import {View, Text, ScrollView, StyleSheet, useColorScheme} from 'react-native';
 import {List, Divider, useTheme} from 'react-native-paper';
 import Apis from '../../utils/apis';
 import HTMLView from 'react-native-htmlview';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Header from '../../components/common/Header';
 
 

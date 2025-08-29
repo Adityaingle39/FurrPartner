@@ -2,7 +2,6 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	SafeAreaView,
 	ScrollView,
 	TouchableOpacity,
 	Image,
@@ -12,6 +11,7 @@ import {
 	Alert,
 	Linking
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import moment from 'moment';
 import React, { useState, useEffect, useRef } from 'react';
 import { useRoute } from '@react-navigation/native';

@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Image,
@@ -10,6 +9,7 @@ import {
   Alert,
   Linking
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState} from 'react';
 import {useRoute, useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';

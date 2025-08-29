@@ -1,8 +1,9 @@
 import React, {useRef, useState, useEffect} from "react";
 import moment from "moment";
-import { SafeAreaView, RefreshControl, View, Text, StyleSheet, VirtualizedList, useColorScheme, Dimensions } from "react-native";
+import {  RefreshControl, View, Text, StyleSheet, VirtualizedList, useColorScheme, Dimensions } from "react-native";
 import { IconButton, Card, Divider, List, useTheme } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import Apis from "../../../utils/apis";
 import Empty from "../../../components/common/Empty";

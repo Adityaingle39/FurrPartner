@@ -13,7 +13,7 @@ import IconCustom from '../../components/common/IconCustom';
 import { useRollsState } from '../../services/rolls';
 import { useAuthState } from '../../services/auth';
 import { getIconTextName } from '../../utils/helpers';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const PreviewRolls = ({ navigation, route }) => {
   const posterImage = Image.resolveAssetSource(require('../../assets/wait.gif')).uri;

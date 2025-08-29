@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Pressable,
@@ -10,6 +9,7 @@ import {
   Linking
 } from 'react-native';
 import moment from 'moment';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useState, useRef } from 'react';
 import { Avatar, Card, List, IconButton, Button as ButtonPaper } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';

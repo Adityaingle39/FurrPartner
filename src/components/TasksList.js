@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View } from 'react-native';
+import { Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View } from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import {RadioButton, Button, SegmentedButtons, List} from 'react-native-paper';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {
     // navigatorLink,

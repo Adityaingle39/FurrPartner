@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BackHandler, Linking, Alert, Dimensions, SafeAreaView, useColorScheme } from 'react-native';
+import { BackHandler, Linking, Alert, Dimensions, useColorScheme } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import { Button, useTheme } from "react-native-paper";
 

@@ -2,13 +2,13 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   Alert,
   ScrollView,
   Modal,
   Pressable,
   useColorScheme,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState, useEffect} from 'react';
 import { useRoute } from '@react-navigation/native';
 import { Button, TextInput, Chip, Divider, IconButton, Button as ButtonPaper, useTheme } from 'react-native-paper';

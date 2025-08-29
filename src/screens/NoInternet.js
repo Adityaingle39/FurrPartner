@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Dimensions, Image, SafeAreaView, useColorScheme, View } from 'react-native';
+import { Dimensions, Image, useColorScheme, View } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { Portal, Button, Text, useTheme } from 'react-native-paper';
 import { useNetInfoInstance } from "@react-native-community/netinfo";
 

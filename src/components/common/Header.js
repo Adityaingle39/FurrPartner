@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   Image,
   TouchableOpacity,
@@ -10,6 +9,7 @@ import {
   TextInput,
   useColorScheme,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { useState, useEffect, useRef } from "react";
 import { hasNotch } from 'react-native-device-info';
 import { IconButton, Divider, Button, Badge, useTheme } from 'react-native-paper';

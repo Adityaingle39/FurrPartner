@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {SafeAreaView, Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View} from 'react-native';
+import { Image, ActivityIndicator, StyleSheet, Text, Pressable, FlatList, ScrollView, View} from 'react-native';
 import IconCustom from './IconCustom';
 import moment from 'moment';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {
     colors,

@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
@@ -11,6 +10,7 @@ import {
   useColorScheme,
   Platform
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useState, useEffect, useRef } from 'react';
 import { TextInput, Button, Checkbox, Divider, useTheme } from 'react-native-paper';
 import { useRoute } from '@react-navigation/native';

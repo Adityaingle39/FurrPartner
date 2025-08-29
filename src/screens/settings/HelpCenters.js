@@ -3,12 +3,12 @@ import {
   View,
   Text,
   ScrollView,
-  SafeAreaView,
   StyleSheet,
   Linking,
   Platform,
   useColorScheme,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {TextInput, Button, List, useTheme} from 'react-native-paper';
 import Iiicon from 'react-native-vector-icons/Feather';
 import remoteConfig from '@react-native-firebase/remote-config';

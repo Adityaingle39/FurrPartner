@@ -3,13 +3,13 @@ import {
   Text,
   Pressable,
   ScrollView,
-  SafeAreaView,
   TouchableOpacity,
   StyleSheet,
   useColorScheme,
   Alert,
   Linking,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState, useEffect, useRef} from 'react';
 import {
   TextInput,

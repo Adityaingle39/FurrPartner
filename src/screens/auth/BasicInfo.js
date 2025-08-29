@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, SafeAreaView, KeyboardAvoidingView, Text, Image, StyleSheet, ScrollView, TouchableOpacity, useColorScheme, BackHandler, Alert,Linking } from 'react-native';
+import { View, KeyboardAvoidingView, Text, Image, StyleSheet, ScrollView, TouchableOpacity, useColorScheme, BackHandler, Alert,Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Iicon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused, useRoute, useTheme } from '@react-navigation/native';
 import { Button, TextInput } from 'react-native-paper';

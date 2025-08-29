@@ -1,6 +1,7 @@
-import { Platform, View, Text, Dimensions, Image, StyleSheet, FlatList, Share, SafeAreaView, VirtualizedList, PanResponder } from 'react-native';
+import { Platform, View, Text, Dimensions, Image, StyleSheet, FlatList, Share, VirtualizedList, PanResponder } from 'react-native';
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Video from 'react-native-video';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { IconButton,FAB,useTheme } from 'react-native-paper';
 import { hasNotch, getNotchHeight } from 'react-native-device-info';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

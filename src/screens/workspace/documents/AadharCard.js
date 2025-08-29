@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Image,
@@ -9,6 +8,7 @@ import {
   Alert,
   Linking
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import ImagePicker from 'react-native-image-crop-picker';

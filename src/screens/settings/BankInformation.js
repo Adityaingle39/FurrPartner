@@ -1,13 +1,13 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
   Linking,
   TextInput
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';

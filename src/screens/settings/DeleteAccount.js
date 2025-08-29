@@ -4,7 +4,6 @@ import {
   Text,
   Dimensions,
   ScrollView,
-  SafeAreaView,
   StyleSheet,
   TextInput,
   TouchableOpacity,
@@ -15,6 +14,7 @@ import {
   useColorScheme,
 
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import { Button, List, useTheme,IconButton } from 'react-native-paper';
 import { ArrowLeft } from 'iconsax-react-native';
 import Iiicon from 'react-native-vector-icons/AntDesign';

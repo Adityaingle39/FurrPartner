@@ -1,4 +1,5 @@
-import {View, Text, ScrollView, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React from 'react';
 import {
   btn,

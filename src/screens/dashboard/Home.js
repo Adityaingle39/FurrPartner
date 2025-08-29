@@ -2,8 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import {BackHandler, Alert} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import moment from 'moment';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {
-  SafeAreaView,
   RefreshControl,
   View,
   Text,

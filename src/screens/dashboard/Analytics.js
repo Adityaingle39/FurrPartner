@@ -1,7 +1,6 @@
 import {
 	View,
 	Text,
-	SafeAreaView,
 	ScrollView,
 	Image,
 	TouchableOpacity,
@@ -11,7 +10,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { RadioButton, Chip, Avatar, IconButton, Divider, useTheme } from 'react-native-paper';
 import Icons from 'react-native-vector-icons/Feather';
-
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Apis from '../../utils/apis';
 import Header from '../../components/common/Header';
 

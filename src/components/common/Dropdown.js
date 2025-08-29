@@ -5,7 +5,6 @@ import {
     Image,
     StyleSheet,
     Text,
-    SafeAreaView,
     Dimensions,
     FlatList,
     ScrollView,
@@ -13,6 +12,7 @@ import {
     Pressable,
     useColorScheme,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import ActionSheet, {SheetProps, ActionSheetRef} from 'react-native-actions-sheet';
 import { useFocusEffect } from '@react-navigation/native';
 import {

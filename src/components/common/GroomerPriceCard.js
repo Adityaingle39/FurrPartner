@@ -2,7 +2,6 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   ScrollView,
   TextInput,
@@ -10,6 +9,7 @@ import {
   Pressable,
   useColorScheme,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import {Provider as PaperProvider, Menu, Card, Divider, List, IconButton, Button as BtnPaper, useTheme} from 'react-native-paper';

@@ -2,7 +2,6 @@ import {
 	Alert,
 	View,
 	Text,
-	SafeAreaView,
 	ScrollView,
 	StyleSheet,
 	TouchableOpacity,
@@ -11,6 +10,7 @@ import {
 	InteractionManager,
 	useColorScheme
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, {useState} from 'react';
 import Icons from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';

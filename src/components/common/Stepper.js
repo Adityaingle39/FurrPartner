@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Badge, ProgressBar} from 'react-native-paper';
-import {Dimensions, Modal, StyleSheet, Text, SafeAreaView, View, ActivityIndicator} from 'react-native';
+import {Dimensions, Modal, StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import {colors} from '../../utils/styles/gobalstyle'
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Stepper = ({steps, active}) => {
     const {width, height} = Dimensions.get('window');

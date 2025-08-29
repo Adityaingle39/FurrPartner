@@ -1,13 +1,13 @@
 import {
     View,
     Text,
-    SafeAreaView,
     ScrollView,
     Image,
     Pressable,
     StyleSheet,
     TextInput,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
 import Video from 'react-native-video';
 import Icons from 'react-native-vector-icons/Feather';

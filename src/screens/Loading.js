@@ -1,6 +1,7 @@
-import {View, Text, ScrollView, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import Button from '../components/common/Button';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   container,
   justifyContentCenter,

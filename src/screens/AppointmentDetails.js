@@ -2,9 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import moment from "moment";
 import ImagePicker from 'react-native-image-crop-picker';
 import remoteConfig from '@react-native-firebase/remote-config';
-import { SafeAreaView, Image, View, Text, StyleSheet, FlatList, VirtualizedList, useColorScheme, Dimensions, ScrollView } from "react-native";
+import {  Image, View, Text, StyleSheet, FlatList, VirtualizedList, useColorScheme, Dimensions, ScrollView } from "react-native";
 import { Avatar, Button, TextInput, IconButton, Card, Divider, List, useTheme } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import Apis from "../utils/apis";
 import Empty from "../components/common/Empty";

@@ -1,12 +1,11 @@
 import {
   View,
   Text,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   TouchableOpacity
 } from 'react-native'
-
+import {SafeAreaView} from 'react-native-safe-area-context';
 import React from 'react'
 import { Button } from 'react-native-paper';
 import Icons from 'react-native-vector-icons/Feather';
