@@ -47,9 +47,15 @@ function reducer(state, action) {
       return state;
   }
 }
-export function authState() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return [state, dispatch];
-}
 
-export const AppContext = createContext();
+export const AppContext = createContext([initialState, () => {}]);
+
+export const AppProvider = ({children}) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <AppContext.Provider value={[state, dispatch]}>
+      {children}
+    </AppContext.Provider>
+  );
+};
