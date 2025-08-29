@@ -1,4 +1,4 @@
-api.cache(false)
+// api.cache(false)
 resetCache: true
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
@@ -12,7 +12,6 @@ module.exports = {
         allowUndefined: true,
       },
     ],
-    'react-native-reanimated/plugin',
     // 'transform-remove-console', // Uncomment for production to remove console logs
   ],
 };
