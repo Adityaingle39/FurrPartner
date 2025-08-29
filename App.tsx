@@ -58,7 +58,8 @@ const App = () => {
     <PaperProvider theme={theme}>
       {visible ? (
         // <AnimatedBootSplash onAnimationEnd={() => setVisible(false)} />
-        null
+                  <Navigations theme={theme} initialRoute="Welcome" />
+
       ) : (
         <AppContext.Provider value={value}>
           <Navigations theme={theme} initialRoute="Welcome" />

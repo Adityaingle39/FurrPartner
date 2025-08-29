@@ -1,8 +1,9 @@
 {
   "project_info": {
     "project_number": "655200664291",
+    "firebase_url": "https://furrcrew-app-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "furrcrew-app",
-    "storage_bucket": "furrcrew-app.appspot.com"
+    "storage_bucket": "furrcrew-app.firebasestorage.app"
   },
   "client": [
     {
